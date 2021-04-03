@@ -74,7 +74,10 @@ At the end of a project create a Release and a DOI on [Zenodo](https://guides.gi
 
 R Notebooks are a great way of documenting your code and splitting it into independent code chunks. There is a good summary [here](https://bookdown.org/yihui/rmarkdown/notebook.html). Rstudio now has a [visual markdown viewer](https://blog.rstudio.com/2020/09/30/rstudio-v1-4-preview-visual-markdown-editing/). The Notebook should be in /code and the rendered files in /results. HTML is the simplest output and should be stored in /results. You can also extract just the code itslef with `knitr::purl()` and keep it as a separate script. You can include Python code blocks with [reticulate](https://rstudio.github.io/reticulate/articles/r_markdown.html) or create a [Jupyter Notebook](https://jupyter.org/). The key thing being that your code is clearly described and reproducible.
 
+<center>
 ![Notebook structure](bootstrap.png){width=80%}
+</center>
+<p>&nbsp;</p>
 
 ## Summary
 
