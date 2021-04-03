@@ -9,7 +9,56 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Principles
+
+To easily rerun code on existing data to reproduce the analysis and save the published results. This should work on any computer (allowing for tweaking the paths to point to any personal data on cardiac$).
+
+It's definitely better to start off using this structure rather than try to re-organise a mature project. This is mainly focussed on R but the same principles apply to Python.
+
+Here are the *Golden Rules*:
+
+* Raw data is read-only and stored in one place for the project. All pre-processing steps should be included in the code.
+* The code is broadly structured into /data, /code and /outputs.
+* Use R Projects. 
+* Keep your working code on GitHub.
+* The top level README contains what is needed to install and execute the code generically.  A `bash` script is ideal for multiple R/Python scripts.
+* Use Notebooks to document in detail each step of the analysis.
+* The wiki should contain the actual commands to run the code locally.
+* For completed projects create a capsule on [Code Ocean](https://codeocean.com/).
+
+## How to organise a project
+
+
+<center>
+![R project structure](RPROJECT_2000dpi.png){width=40%}
+</center>
+<p>&nbsp;</p>
+
+First step is to start with an [R project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects). These are a good idea for lots of reasons summarised [here](https://r4ds.had.co.nz/workflow-projects.html).
+<p>&nbsp;</p>
+
+*/data*
+\  
+
+For a simple project you could include the anonymised raw data so that everything just works. Good example [here](https://codeocean.com/capsule/1175539/tree/v1). But for most projects that isn't practical or the data is sensitive. For published projects some synthetic or toy data is useful so that the code can run. Don't put any patient level data on GitHub.
+
+*/code*
+\  
+
+You can split this into functions and scripts if helpful. As it's a Project the paths are relative, but there is often no easy alternative to an absolute link to the raw data on cardiac$. Don't rely on any absolute paths elsewhere especially to things on your personal share. Your code should work for *anyone*. Good code commenting is important and R Notebooks or Jupyter Notebooks are an excellent way of doing this (see below). You can store both the Notebook and the extracted code (`knitr::purl()`) separately. 
+
+*/outputs*
+\ 
+
+When you run your code save the outputs here. It's good practice to upload the outputs to GitHub so that they can be reviewed without having to actually run the code. There shouldn't be anything in here that wasn't created by your code. This is where you should save the rendered HTML files from your Notebooks, and all the tables and plots they produce.
+
+
+## GitHub
+
+GitHub isn't just for the finished product - it should be used to manage the whole development of your analysis. There is a simple guide [here](https://happygitwithr.com/rstudio-git-github.html). RStudio lets you stage commits and push them all within the IDE - so it's very easy to keep your working code sync'd with GitHub. 
+
+
+`hello`
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
