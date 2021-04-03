@@ -45,7 +45,7 @@ For a simple project you could include the anonymised raw data so that everythin
 */code*
 \  
 
-You can split this into functions and scripts if helpful. As it's a Project the paths are relative, but there is often no easy alternative to an absolute link to the raw data on cardiac$. Don't rely on any absolute paths elsewhere especially to things on your personal share. Your code should work for *anyone*. Good code commenting is important and R Notebooks or Jupyter Notebooks are an excellent way of doing this (see below). You can store both the Notebook and the extracted code (`knitr::purl()`) separately. 
+You can split this into functions and scripts if helpful. As it's a Project the paths are relative, but there is often no easy alternative to an absolute link to the raw data on cardiac$. Don't rely on any absolute paths elsewhere especially to things on your personal share. Your code should work for *anyone*. Good code commenting is important and R Notebooks or Jupyter Notebooks are an excellent way of doing this (see below). You can store both the Notebook and the extracted code separately. 
 
 */outputs*
 \ 
@@ -56,5 +56,19 @@ When you run your code save the outputs here. It's good practice to upload the o
 ## GitHub
 
 GitHub isn't just for the finished product - it should be used to manage the whole development of your analysis. There is a simple guide [here](https://happygitwithr.com/rstudio-git-github.html). RStudio lets you stage commits and push them all within the IDE - so it's very easy to keep your working code sync'd with GitHub. 
+
+The README should assume minimal knowledge and describe the exact steps to install and run the code. 
+
+For collaborative projects make use of `issues` to assign specific tasks and `pull requests` to propose code changes. Most of these appear as alerts on the GitHub slack channel.
+
+At the end of a project create a Release and a DOI on [Zenodo](https://guides.github.com/activities/citable-code/). 
+
+## Notebooks
+
+R Notebooks are a great way of documenting your code and splitting it into independent code chunks. There is a good summary [here](https://bookdown.org/yihui/rmarkdown/notebook.html). Rstudio now has a [visual markdown viewer](https://blog.rstudio.com/2020/09/30/rstudio-v1-4-preview-visual-markdown-editing/). The Notebook should be in /code and the rendered files in /results. HTML is the simplest output and should be stored in /results. You can also extract just the code itslef with `knitr::purl()` and keep it as a separate script. You can include Pyhton code blocks with [reticulate](https://rstudio.github.io/reticulate/articles/r_markdown.html) or create a [Jupyter Notebook](https://jupyter.org/). The key thing being that your code is clearly described and reproducible.
+
+## Summary
+
+A good example of what it should look like is the 4DSurvival project for which we created a [compute capsule](https://codeocean.com/capsule/4475442/tree/v1) on Code Ocean. The key features are separation into /data (synthetic), /code (scripts and notebooks), and /results (HTML renders, txt files, and plots). The environment is specified in a Dockerfile. There is also a `master.sh` that runs everything.
 
 

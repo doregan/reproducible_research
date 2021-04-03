@@ -199,13 +199,24 @@ First step is to start with an <a href="https://support.rstudio.com/hc/en-us/art
 <p><em>/data</em>  </p>
 <p>For a simple project you could include the anonymised raw data so that everything just works. Good example <a href="https://codeocean.com/capsule/1175539/tree/v1">here</a>. But for most projects that isn’t practical or the data is sensitive. For published projects some synthetic or toy data is useful so that the code can run. Don’t put any patient level data on GitHub.</p>
 <p><em>/code</em>  </p>
-<p>You can split this into functions and scripts if helpful. As it’s a Project the paths are relative, but there is often no easy alternative to an absolute link to the raw data on cardiac$. Don’t rely on any absolute paths elsewhere especially to things on your personal share. Your code should work for <em>anyone</em>. Good code commenting is important and R Notebooks or Jupyter Notebooks are an excellent way of doing this (see below). You can store both the Notebook and the extracted code (<code>knitr::purl()</code>) separately.</p>
+<p>You can split this into functions and scripts if helpful. As it’s a Project the paths are relative, but there is often no easy alternative to an absolute link to the raw data on cardiac$. Don’t rely on any absolute paths elsewhere especially to things on your personal share. Your code should work for <em>anyone</em>. Good code commenting is important and R Notebooks or Jupyter Notebooks are an excellent way of doing this (see below). You can store both the Notebook and the extracted code separately.</p>
 <p><em>/outputs</em>  </p>
 <p>When you run your code save the outputs here. It’s good practice to upload the outputs to GitHub so that they can be reviewed without having to actually run the code. There shouldn’t be anything in here that wasn’t created by your code. This is where you should save the rendered HTML files from your Notebooks, and all the tables and plots they produce.</p>
 </div>
 <div id="github" class="section level2">
 <h2>GitHub</h2>
 <p>GitHub isn’t just for the finished product - it should be used to manage the whole development of your analysis. There is a simple guide <a href="https://happygitwithr.com/rstudio-git-github.html">here</a>. RStudio lets you stage commits and push them all within the IDE - so it’s very easy to keep your working code sync’d with GitHub.</p>
+<p>The README should assume minimal knowledge and describe the exact steps to install and run the code.</p>
+<p>For collaborative projects make use of <code>issues</code> to assign specific tasks and <code>pull requests</code> to propose code changes. Most of these appear as alerts on the GitHub slack channel.</p>
+<p>At the end of a project create a Release and a DOI on <a href="https://guides.github.com/activities/citable-code/">Zenodo</a>.</p>
+</div>
+<div id="notebooks" class="section level2">
+<h2>Notebooks</h2>
+<p>R Notebooks are a great way of documenting your code and splitting it into independent code chunks. There is a good summary <a href="https://bookdown.org/yihui/rmarkdown/notebook.html">here</a>. Rstudio now has a <a href="https://blog.rstudio.com/2020/09/30/rstudio-v1-4-preview-visual-markdown-editing/">visual markdown viewer</a>. The Notebook should be in /code and the rendered files in /results. HTML is the simplest output and should be stored in /results. You can also extract just the code itslef with <code>knitr::purl()</code> and keep it as a separate script. You can include Pyhton code blocks with <a href="https://rstudio.github.io/reticulate/articles/r_markdown.html">reticulate</a> or create a <a href="https://jupyter.org/">Jupyter Notebook</a>. The key thing being that your code is clearly described and reproducible.</p>
+</div>
+<div id="summary" class="section level2">
+<h2>Summary</h2>
+<p>A good example of what it should look like is the 4DSurvival project for which we created a <a href="https://codeocean.com/capsule/4475442/tree/v1">compute capsule</a> on Code Ocean. The key features are separation into /data (synthetic), /code (scripts and notebooks), and /results (HTML renders, txt files, and plots). The environment is specified in a Dockerfile. There is also a <code>master.sh</code> that runs everything.</p>
 </div>
 
 
